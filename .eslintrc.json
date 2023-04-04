@@ -3,9 +3,18 @@
         "browser": true,
         "es2021": true
     },
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [".js", ".jsx", ".ts", ".tsx"]
+          }
+        }
+    },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript"
+        "standard-with-typescript",
+        "airbnb",
+        "prettier"
     ],
     "overrides": [
     ],
@@ -15,9 +24,21 @@
         "project": ["./tsconfig.json"]
     },
     "plugins": [
-        "react"
-    ],
+        "react",
+        "prettier",
+        "@typescript-eslint"
+        ],
     "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off"
+        "react/jsx-filename-extension": [0],
+        "import/extensions": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "parser": "typescript", 
+                "endOfLine": "auto"
+            }
+        ]
     }
 }
